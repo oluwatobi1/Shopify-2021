@@ -6,7 +6,19 @@
   </head>
   <body>
     <h3> Gallery</h3>
-  
+
+  <h1>Images</h1>
+
+
+<ul>
+    {% for each in object_list %}
+        <li>
+        Name: {{ each.name }} <br>Description :{{ each.description }}<br><br>
+        </li>
+    {% endfor %}
+</ul>
+
+
 
   </body>
 </html>

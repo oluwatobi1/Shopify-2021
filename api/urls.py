@@ -4,8 +4,10 @@
 
 """
 from django.urls import path
-from .views import ShopView
+from .views import ShopFormView, ShopGalleryView
+
 
 urlpatterns = [
-    path('', ShopView.as_view())
+    path('', ShopFormView.as_view()),
+    path('gallery', ShopGalleryView.as_view(), name='gallery')
 ]
