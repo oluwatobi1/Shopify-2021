@@ -25,7 +25,7 @@ class ShopFormView(View):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/success/')
+            return HttpResponseRedirect('/shop/gallery')
         else:
             print(form.errors)
             return HttpResponse("Form Error")
@@ -34,7 +34,8 @@ class ShopFormView(View):
 
 class ShopGalleryView(ListView):
     model = Shop
-    paginate_by = 2
+    # TODO work on pagination
+    # paginate_by = 2
     template_name = "api/Gallery.html"
 
     def get_context_data(self):
