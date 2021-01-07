@@ -4,8 +4,8 @@
 
 """
 from django.urls import path
-from . import views
+from .views import ShopView
 
 urlpatterns = [
-    path('', views.view)
+    path('', ShopView.as_view())
 ]
