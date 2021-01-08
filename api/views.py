@@ -24,7 +24,10 @@ class ShopFormView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            form['uploaded_by'] = self.user.username
+            print(self.user.username, "usererrer")
+
+            # form.save()
             return HttpResponseRedirect('/shop/gallery')
         else:
             print(form.errors)

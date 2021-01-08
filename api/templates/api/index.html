@@ -3,14 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>My test page</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
     <h3>Form test </h3>
+{#    TODO remove old form #}
+{#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
+{#    https://codepen.io #}
+
   <form method="post" enctype="multipart/form-data">
-      {{ form.as_p }}
+        <label>Name</label>
+      {{ form.name }}
+      <label>Name</label>
+      {{ form.description }}
       {% csrf_token %}
       <button type="submit">Upload</button>
   </form>
+
+
+  <br>
+    <div class="container">
+  <div class="row">
+  <div class="col-sm-2 imgUp">
+    <div class="imagePreview"></div>
+<label class="btn btn-primary">
+    Upload
+    <div style="width: 0px;height: 0px;overflow: hidden;">
+        <h1>some text here</h1>
+    </div>
+</label>
+  </div><!-- col-2 -->
+  <i class="fa fa-plus imgAdd"></i>
+ </div><!-- row -->
+</div><!-- container -->
+
+
 
 
   </body>
