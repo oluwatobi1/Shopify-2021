@@ -69,4 +69,8 @@ class SignUpFormView(View):
 
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('api/Gallery.html')
+            return HttpResponseRedirect('/shop/gallery')
+        else:
+            print(form.errors)
+            return HttpResponse("Form Error")
+

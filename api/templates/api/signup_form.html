@@ -2,21 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Gallery</title>
+    <title>Signup</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h3> Gallery</h3>
+    <h3> Signup</h3>
 
-  <h1>Images</h1>
+<div class="container-fluid">
+  <form method="post">
+      {% csrf_token %}
+      {% for field in signup_form %}
+          <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+{#          TOdo remove lenght password help text #}
+          {% if field.help_text and field.label_tag != 'Password:' %}
+              <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
 
-
-<ul>
-    {% for each in object_list %}
-        <li>
-        Name: {{ each.name }} <br>Description :{{ each.description }}<br><br>
-        </li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+          </p>
+      {% endfor %}
+      <button type="submit">Signup</button>
+  </form>
+</div>
 
 
 
