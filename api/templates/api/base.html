@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopify</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <header>
+      {% if user.is_authenticated  %}
+          HI {{ user.username }}
+{#          <a href="{% url 'logout' %}">Logout</a>#}
+
+       {% else %}
+          <a href="{% url 'login' %}">Login Here</a>
+
+      {% endif %}
+  </header>
+
+<div class="container-fluid">
+  <form method="post">
+      {% csrf_token %}
+      {% for field in signup_form %}
+          <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+{#          TOdo remove lenght password help text #}
+          {% if field.help_text and field.label_tag != 'Password:' %}
+              <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+
+        {% endfor %}
+          </p>
+      {% endfor %}
+      <button type="submit">Signup</button>
+  </form>
+</div>
+
+
+
+  </body>
+</html>

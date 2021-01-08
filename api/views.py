@@ -74,3 +74,20 @@ class SignUpFormView(View):
             print(form.errors)
             return HttpResponse("Form Error")
 
+
+class LoginView(View):
+    template_name = "api/login_form.html"
+
+    def get(self, request, *args,**kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/shop/gallery')
+        else:
+            return HttpResponse("Form Error")
+
