@@ -1,11 +1,13 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.views import View
 from django.views.generic import ListView
 from django.utils import timezone
+from django.contrib.auth import authenticate, login
 
-from .forms import ShopForm
+from .forms import ShopForm, SignUpForm
 from .models import Shop
+
 
 # Create your views here.
 
@@ -16,7 +18,7 @@ class ShopFormView(View):
 
     def get(self, request, *args, **kwargs):
         form = self.form_class
-        context = {'form':form}
+        context = {'form': form}
         return render(request, self.template_name, context)
 
     # TODO refactor form post
@@ -25,6 +27,7 @@ class ShopFormView(View):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             form['uploaded_by'] = self.user.username
+            # todo remove this
             print(self.user.username, "usererrer")
 
             # form.save()
@@ -47,7 +50,23 @@ class ShopGalleryView(ListView):
         return context
 
 
+class SignUpFormView(View):
+    form_class = SignUpForm
+    template_name = "api/signup_form.html"
 
+    def get(self, request, *args, **kwargs):
+        form = self.form_class
+        context = {'signup_form': form}
+        return render(request, self.template_name, context)
 
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            # TODo this form.save check it
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
 
-
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('api/Gallery.html')
