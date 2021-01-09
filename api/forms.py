@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class ShopForm(forms.ModelForm):
     class Meta:
         model = Shop
-        fields = ["photo", "name", "description", "price", "tags"]
+        fields = ["photo", "description", "price", "tags"]
 
 # TOdo work on form Validation hint password field
 
