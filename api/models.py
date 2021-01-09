@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Shop(models.Model):
     description = models.TextField(max_length=1000)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    # price = models.DecimalField(max_digits=5, decimal_places=2)
     photo = models.ImageField(upload_to='shop')
     tags = models.CharField(max_length=50)
     uploaded_by = models.CharField(max_length=50)
