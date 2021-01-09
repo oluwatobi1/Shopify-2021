@@ -15,40 +15,28 @@
 
 
     <h3>Image Upload </h3>
-{#    TODO remove old form #}
+
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
-{#    https://codepen.io #}
 
-
-  <form method="post" enctype="multipart/form-data">
-       {% csrf_token %}
-
-      <label>{{ form.photo.label_tag }}</label><br>
-      {{ form.photo }}
-      <br>
-
-      <label>{{ form.description.label_tag }}</label><br>
-      {{ form.description }}
-      <br>
-
-      <label>{{ form.tags.label_tag }}</label><br>
-      {{ form.tags }}
-      <br><br>
-      <button class="btn btn-primary" type="submit">Upload</button>
-  </form>
       </div>
-
-
   <br>
 
+  </div>
 
- <form method="POST">
-  <input type="file" multiple>
-  <p>Drag your files here or click in this area.</p>
+
+
+ <form method="POST" id="form" enctype="multipart/form-data">
+     {% csrf_token %}
+     <span>{{ form.photo }}</span>
+     <p>Drag your files here or click in this area.</p>
+     <label>{{ form.tags.label_tag }}</label>
+     {{ form.tags }}
+      <br><br>
+     <label>{{ form.description.label_tag }}</label>
+      {{ form.description }}
+      <br>
   <button type="submit">Upload</button>
 </form>
 
 
-
-  </div>
 {% endblock %}
