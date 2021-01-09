@@ -7,19 +7,27 @@
 
 {% block content %}
   <div class="container-fluid">
-    <h3>Form test </h3>
+    <h3>Image Upload </h3>
 {#    TODO remove old form #}
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
 {#    https://codepen.io #}
 
 
   <form method="post" enctype="multipart/form-data">
-        <label>Name</label>
-      {{ form.name }}
+       {% csrf_token %}
+
+      <label>{{ form.photo.label_tag }}</label><br>
+      {{ form.photo }}
       <br>
-      {{ form.as_p }}
-      {% csrf_token %}
-      <button type="submit">Upload</button>
+
+      <label>{{ form.description.label_tag }}</label><br>
+      {{ form.description }}
+      <br>
+
+      <label>{{ form.tags.label_tag }}</label><br>
+      {{ form.tags }}
+      <br><br>
+      <button class="btn btn-primary" type="submit">Upload</button>
   </form>
 
 

@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import shop_redirect
+# Todo any reason for shop redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/', include('api.urls')),
+    path('', shop_redirect),
 
 ]

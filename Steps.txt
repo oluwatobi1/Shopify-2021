@@ -1,0 +1,25 @@
+begin 7/8/2121
+
+
+fundamentals
+    image repo - image upload interface
+               - image gallery interface
+    auth - signup functionality
+        - login functionality
+
+7:49 8/1/2021
+successful deploy of version 1 to heroku
+    crude (v1) of image repo and auth function done
+
+next points:
+    -work on gallery image display interface
+        - add pagination
+
+    - work on concurrency of image upload
+        - research
+        - else work on auth user and permissions
+        -else work on delete.
+            - many people may not work on this.
+
+    - work on frontend
+
