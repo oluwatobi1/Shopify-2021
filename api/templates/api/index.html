@@ -1,12 +1,19 @@
-
-
   {% extends 'api/base.html' %}
+{% load static %}
+{% block style %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/image_upload.css' %}">
+  {% endblock %}
+
+
 
 {% block title %}Upload{% endblock %}
 
 
 {% block content %}
   <div class="container-fluid">
+  <div class="">
+
+
     <h3>Image Upload </h3>
 {#    TODO remove old form #}
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
@@ -29,24 +36,17 @@
       <br><br>
       <button class="btn btn-primary" type="submit">Upload</button>
   </form>
+      </div>
 
 
   <br>
-    <div class="container">
-  <div class="row">
-  <div class="col-sm-2 imgUp">
-    <div class="imagePreview"></div>
-<label class="btn btn-primary">
-    Upload
-    <div style="width: 0px;height: 0px;overflow: hidden;">
-        <h1>some text here</h1>
-    </div>
-</label>
-  </div><!-- col-2 -->
-  <i class="fa fa-plus imgAdd"></i>
- </div><!-- row -->
-</div><!-- container -->
 
+
+ <form method="POST">
+  <input type="file" multiple>
+  <p>Drag your files here or click in this area.</p>
+  <button type="submit">Upload</button>
+</form>
 
 
 
