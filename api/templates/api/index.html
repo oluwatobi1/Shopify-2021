@@ -4,17 +4,14 @@
 {% block style %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/image_upload.css' %}">
   {% endblock %}
-
-
-
 {% block title %}Upload{% endblock %}
-
 
 {% block content %}
   <div class="container-fluid">
-    <h3>Image Upload </h3>
+    <h3 class="imagetext">Image Upload </h3>
+
+
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
-  </div>
 
  <form method="POST" id="form" enctype="multipart/form-data" class="uniForm">
      {% csrf_token %}
@@ -26,6 +23,6 @@
 
   <button type="submit">Upload</button>
 </form>
-
+  </div>
 
 {% endblock %}

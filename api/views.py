@@ -26,10 +26,10 @@ class ShopFormView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            form['uploaded_by'] = self.user.username
+            form.cleaned_data['uploaded_by'] = request.user.username
             # todo remove this
-            print(self.user.username, "usererrer")
-
+            print(request.user.username, "usererrer")
+            print(form.cleaned_data, "formdata")
             # form.save()
             return HttpResponseRedirect('/shop/gallery')
         else:

@@ -1,11 +1,10 @@
+.imagetext{
+  text-align: center;
+}
 
 #form{
-  position: absolute;
+  margin: auto;
   background: rgba(0,0,0,0.9);
-  top: 50%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -250px;
   width: 500px;
   height: 200px;
   border: 4px dashed #fff;
