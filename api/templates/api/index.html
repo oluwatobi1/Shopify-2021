@@ -1,5 +1,6 @@
   {% extends 'api/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block style %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/image_upload.css' %}">
   {% endblock %}
@@ -11,30 +12,18 @@
 
 {% block content %}
   <div class="container-fluid">
-  <div class="">
-
-
     <h3>Image Upload </h3>
-
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
-
-      </div>
-  <br>
-
   </div>
 
-
-
- <form method="POST" id="form" enctype="multipart/form-data">
+ <form method="POST" id="form" enctype="multipart/form-data" class="uniForm">
      {% csrf_token %}
      <span>{{ form.photo }}</span>
      <p>Drag your files here or click in this area.</p>
-     <label>{{ form.tags.label_tag }}</label>
-     {{ form.tags }}
-      <br><br>
-     <label>{{ form.description.label_tag }}</label>
-      {{ form.description }}
-      <br>
+
+     {{ form.description|as_crispy_field }}
+     {{ form.tags|as_crispy_field }}
+
   <button type="submit">Upload</button>
 </form>
 
