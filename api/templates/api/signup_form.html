@@ -1,29 +1,17 @@
-
-  {% extends 'api/base.html' %}
-
+{# code here to be injected into the base template file#}
+{% extends 'api/base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}Signup{% endblock %}
 
 
+{# handle the signup ie. (setting up a repo #}
 {% block content %}
-
-<div class="container-fluid">
+<div class="row justify-content-around">
   <form method="post">
+<h2 align="center"> Create your Image Repo</h2>
       {% csrf_token %}
-      {% for field in signup_form %}
-          <p>
-          {{ field.label_tag }}<br>
-          {{ field }}
-{#          TOdo remove lenght password help text #}
-          {% if field.help_text and field.label_tag != 'Password:' %}
-              <small style="color: grey">{{ field.help_text }}</small>
-          {% endif %}
-          {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-
-        {% endfor %}
-          </p>
-      {% endfor %}
-      <button type="submit">Signup</button>
+          {{ signup_form|crispy }}
+      <button class="btn btn-primary" type="submit">Signup</button>
   </form>
 </div>
 

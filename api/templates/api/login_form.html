@@ -1,52 +1,40 @@
-
-
-  {% extends 'api/base.html' %}
-
+{% extends 'api/base.html' %}
 {% block title %}Login{% endblock %}
 
+{#    injected code/template below #}
 
 {% block content %}
-
 <h2 align="center"> Repo Login</h2>
 
 <form method="post">
   {% csrf_token %}
-
+{#    login form code #}
     <div class="form-group">
     <label for="InputUsername">Repo Name</label>
     <input type="text" class="form-control" id="InputUsername" aria-describedby="textHelp"
            placeholder="Enter Repo" name="username">
   </div>
-{##}
-{#<label for="username"> Username: </label>#}
-{#  <input id="username" type="text" name="username" placeholder="Username">#}
 
 <div class="form-group">
     <label for="InputPassword1">Password</label>
     <input  name="password" type="password" class="form-control"
            id="InputPassword1" placeholder="Password">
   </div>
-{#    #}
-{#<p><label for="password"> Password: </label>#}
-{#  <input id="password"type="password" name="password">#}
-{#</p>#}
 
     <button type="submit" class="btn btn-primary">Login</button>
-{#<p>#}
-{#  <input type="submit" value="Login">#}
-{#</p>#}
+
 </form>
+
 <br>
 <a class="btn btn-primary " href="{% url 'signup_url' %}">Don't have an account?. Sign up</a>
 
+{#    an if condition to displays errors if there are#}
 {% if form.errors %}
-<p>
-Error: Confirm details.
-{{form.errors}}
-</p>
+    <p>
+    Error: Confirm details.
+    {{form.errors}}
+    </p>
 {% endif %}
-</div>
-    </div>
 {% endblock %}
 
 
