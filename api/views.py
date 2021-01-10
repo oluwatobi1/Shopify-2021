@@ -94,6 +94,6 @@ class LoginView(View):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/shop/login')
+    return HttpResponseRedirect('/shop/gallery')
 
 
