@@ -3,7 +3,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.views import View
 from django.views.generic import ListView
 from django.utils import timezone
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .forms import ShopForm, SignUpForm
 from .models import Shop
@@ -90,4 +90,10 @@ class LoginView(View):
             return HttpResponseRedirect('/shop/gallery')
         else:
             return HttpResponse("Form Error")
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/shop/login')
+
 

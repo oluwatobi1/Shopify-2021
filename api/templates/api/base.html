@@ -20,15 +20,19 @@
 {#          ToDo Implement logout#}
           <br>
           HI {{ user.username }}
-       {% else %}
-          <a href="{% url 'login_url' %}">Login Here</a>
 
       {% endif %}
-  </div>
   <hr>
+  </div>
   <div class="pagelinks row justify-content-around">
           <a class="btn btn-primary col-2" href="{% url 'gallery_url' %}">Image Repo</a>
-{#          <a class="btn btn-primary col-2" href="{% url 'logout_url' %}">Logout Here</a>#}
+
+      {% if user.is_authenticated %}
+          <a class="btn btn-primary col-2" href="{% url 'login_url' %}">Logout Here</a>
+          {% else %}
+          <a class="btn btn-primary col-2" href="{% url 'logout_url' %}">Login Here</a>
+
+      {% endif %}
           </div>
   <hr>
 <div class="container-fluid">
