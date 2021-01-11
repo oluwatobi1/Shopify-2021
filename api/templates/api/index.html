@@ -12,7 +12,7 @@
 
 
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
-
+<div class="divbody">
  <form method="POST" id="form" enctype="multipart/form-data" class="uniForm">
      {% csrf_token %}
      <span>{{ form.photo }}</span>
@@ -23,6 +23,8 @@
 
   <button type="submit">Upload</button>
 </form>
+
+</div>
   </div>
 
 {% endblock %}

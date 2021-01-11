@@ -11,26 +11,21 @@
 {% block content %}
 
 
-https://codepen.io/juliepark/pen/qKQzJL
-<ul>
+
+{% comment %} display images in gallery kind of view{% endcomment %}
+<div class="row justify-content-around">
+
     {% for each in object_list %}
-        <li>
-        Name: {{ each.photo }} <br>Description :{{ each.description }}<br><br>
-{#            todo add alt#}
-
-         <img src="{{ each.photo.url }}" width="600" height="400"><br>
-        Name: {{ each.photo.url }} <br>Description :{{ each.description }}<br><br>
-        </li>
+    <div class="gallery row justify-content-around">
+      <a target="_blank" href="img_5terre.jpg">
+        <img src="{{ each.photo.url }}" alt="Cinque Terre" width="600" height="400">
+      </a>
+      <div class="desc">{{ each.description }}</div>
+    </div>
     {% endfor %}
-</ul>
 
-
-<div class="gallery">
-  <a target="_blank" href="img_5terre.jpg">
-    <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Cinque Terre" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
 </div>
+
 
 
 {% endblock %}
