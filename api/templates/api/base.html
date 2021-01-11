@@ -26,6 +26,7 @@
   <div class="pagelinks row justify-content-around">
       {% if user.is_authenticated %}
           <a class="btn btn-primary col-2" href="{% url 'gallery_url' %}">Image Repo</a>
+          <a class="btn btn-primary col-2" href="{% url 'upload_url' %}">Upload to {{ user.username }}</a>
           <a class="btn btn-primary col-2" href="{% url 'logout_url' %}">Logout Here</a>
           {% else %}
           <a class="btn btn-primary col-2" href="{% url 'login_url' %}">Login Here</a>

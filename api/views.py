@@ -29,8 +29,8 @@ class ShopFormView(View):
             form.cleaned_data['uploaded_by'] = request.user.username
             # todo remove this
             print(request.user.username, "usererrer")
-            print(form.cleaned_data, "formdata")
-            # form.save()
+            print(request.FILES, "formdataimger")
+            form.save()
             return HttpResponseRedirect('/shop/gallery')
         else:
             print(form.errors)

@@ -118,6 +118,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'shop')
+MEDIA_URL = '/shop/'
+
 LOGIN_REDIRECT_URL = 'gallery'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -10,7 +10,7 @@ class ShopForm(forms.ModelForm):
         model = Shop
         fields = ["photo", "description", "tags"]
         widgets = {
-            "description": forms.Textarea(attrs={'rows':5, 'cols':20})
+            "description": forms.Textarea(attrs={'rows': 5, 'cols': 20})
         }
 
 # TOdo work on form Validation hint password field
