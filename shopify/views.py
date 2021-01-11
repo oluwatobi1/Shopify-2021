@@ -2,4 +2,8 @@ from django.http import HttpResponseRedirect
 
 
 def shop_redirect(request):
-    return HttpResponseRedirect("shop/")
+    if request.user.is_authenticated:
+        return HttpResponseRedirect("shop")
+    else:
+        return HttpResponseRedirect("shop/login")
+
