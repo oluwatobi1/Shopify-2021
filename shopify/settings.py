@@ -122,5 +122,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'shop')
 MEDIA_URL = '/shop/'
 
 LOGIN_REDIRECT_URL = 'gallery'
+LOGIN_URL = '/shop/login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

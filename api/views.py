@@ -4,6 +4,7 @@ from django.views import View
 from django.views.generic import ListView
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import ShopForm, SignUpForm
 from .models import Shop
@@ -12,7 +13,7 @@ from .models import Shop
 # Create your views here.
 
 
-class ShopFormView(View):
+class ShopFormView(LoginRequiredMixin, View):
     form_class = ShopForm
     template_name = "api/index.html"
 
@@ -38,7 +39,7 @@ class ShopFormView(View):
         return render(request, self.template_name, {'form': form})
 
 
-class ShopGalleryView(ListView):
+class ShopGalleryView(LoginRequiredMixin, ListView):
     model = Shop
     # TODO work on pagination
     # paginate_by = 2
@@ -94,6 +95,6 @@ class LoginView(View):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/shop/gallery')
+    return HttpResponseRedirect('/shop/login')
 
 
