@@ -1,14 +1,35 @@
 
 {% extends 'api/base.html' %}
+{% load static %}
+
 {% block title %}Signup{% endblock %}
+
+ {% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
+{% endblock %}
 
 {% block content %}
 
+
+https://codepen.io/juliepark/pen/qKQzJL
 <ul>
     {% for each in object_list %}
         <li>
         Name: {{ each.name }} <br>Description :{{ each.description }}<br><br>
+         <img src="" alt="Cinque Terre" width="600" height="400">
+
+
         </li>
     {% endfor %}
 </ul>
+
+
+<div class="gallery">
+  <a target="_blank" href="img_5terre.jpg">
+    <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+
 {% endblock %}
