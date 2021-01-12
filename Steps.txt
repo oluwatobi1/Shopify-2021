@@ -23,3 +23,9 @@ next points:
 
     - work on frontend
 
+5:59 11/1/2021
+
+Use AI image for search:
+    - implement image captioning to exact text features
+    - search through captioned text
+    research
