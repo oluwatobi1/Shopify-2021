@@ -3,39 +3,40 @@
 
 {% block title %}Signup{% endblock %}
  {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/central_gallery.css' %}">
 {% endblock %}
 {% block content %}
 
 
-
+<div class="intro">
+            <h2 class="text-center">Central Repository</h2>
+            <p class="text-center">Find all in the repository. click on any image to open gallery</p>
+        </div>
 <br>
+
 <form  method="get">
     <div class="form-group">
-        <input type="text" name="tags" class="form-control" placeholder="Search...">
-<br>
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="text" name="tags" class="form-control" placeholder="Search Central Repo...">
+         <small class="form-text text-muted">Searches image Tags and Descriptions</small>
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
     </div>
-
 </form>
-<br>
-<br>
 
-
-
-
-
-<a href="{% url 'gallery_url' %}" <<<--Go to all images</a>
 
 
 
 {% comment %} display images in gallery kind of view{% endcomment %}
 <div class="lightbox-gallery">
     <div class="container">
+    <a href="{% url 'gallery_url' %}">
         <div class="intro">
-            <h2 class="text-center">{{ user.username|capfirst }} Repository</h2>
-            <p class="text-center">Find the light gallery for your repository. click on any image to open gallery</p>
+            <h2 class="text-center">Repository</h2>
+            <p class="text-center">Find all images in the repository. click on any image to open gallery</p>
         </div>
+    </a>
         <div class="row photos">
         {% comment %}Loop to return items in database{% endcomment %}
              {% for each in object_list %}
@@ -52,7 +53,6 @@
         </div>
     </div>
 </div>
-
 
 
 {% endblock %}

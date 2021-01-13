@@ -45,7 +45,7 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
     model = Shop
     # TODO work on pagination
     # paginate_by = 2
-    template_name = "api/Gallery.html"
+    template_name = "api/central_gallery.html"
 
     # search functionality
     def get_queryset(self):
