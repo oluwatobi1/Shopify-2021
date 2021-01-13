@@ -45,6 +45,13 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
     # paginate_by = 2
     template_name = "api/Gallery.html"
 
+    def get_queryset(self):
+        query = self.request.GET.get('tags')
+        try:
+            return Shop.objects.filter(tags__icontains=query)
+        except:
+            return 
+
     def get_context_data(self):
         context = super().get_context_data()
         context['now'] = timezone.now()

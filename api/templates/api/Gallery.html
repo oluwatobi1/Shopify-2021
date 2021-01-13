@@ -9,6 +9,34 @@
 
 
 
+
+<br>
+<br>
+<br>
+<h1>HomePage</h1>
+
+<form action="{% url 'gallery_url' %}" method="get">
+  <input name="tags" type="text" placeholder="Search...">
+</form>
+  {% for city in object_list %}
+    <li>
+      {{ city.description }}, {{ city.tags }}
+    </li>
+  {% endfor %}
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
 {% comment %} display images in gallery kind of view{% endcomment %}
 <div class="lightbox-gallery">
     <div class="container">
