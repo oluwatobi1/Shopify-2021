@@ -5,10 +5,11 @@ from django.utils import timezone
 
 
 class Shop(models.Model):
-    description = models.TextField(max_length=100)
+
+    description = models.TextField(max_length=100, blank=False)
     # price = models.DecimalField(max_digits=5, decimal_places=2)
     photo = models.ImageField(upload_to='shop')
-    tags = models.CharField(max_length=50)
+    tags = models.CharField(max_length=50, blank=False)
     uploaded_by = models.CharField(max_length=50)
     created_on = models.DateTimeField(default=timezone.now)
 

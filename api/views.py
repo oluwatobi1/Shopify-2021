@@ -28,11 +28,8 @@ class ShopFormView(LoginRequiredMixin, View):
     # TODO work/Add on form Validations.
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
+        form.instance.uploaded_by = request.user
         if form.is_valid():
-            form.cleaned_data['uploaded_by'] = request.user.username
-            # todo remove this
-            print(request.user.username, "usererrer")
-            print(request.FILES, "formdataimger")
             form.save()
             return HttpResponseRedirect('/shop/gallery')
         else:
@@ -41,7 +38,7 @@ class ShopFormView(LoginRequiredMixin, View):
         return render(request, self.template_name, {'form': form})
 
 
-class ShopGalleryView(LoginRequiredMixin, ListView):
+class ShopCentralGalleryView(LoginRequiredMixin, ListView):
     model = Shop
     # TODO work on pagination
     # paginate_by = 2
@@ -57,6 +54,22 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
             return Shop.objects.all()
 
 
+class ShopPersonalGalleryView(LoginRequiredMixin, ListView):
+    model = Shop
+    # TODO work on pagination
+    # paginate_by = 2
+    template_name = "api/personal_gallery.html"
+
+    # search functionality
+    def get_queryset(self):
+        print(self.request.user)
+        search_text = self.request.GET.get('tags')
+        if search_text:
+            return Shop.objects.filter(Q(tags__icontains=search_text) |
+                                       Q(description__icontains=search_text)|
+                                       Q(uploaded_by__iexact=self.request.user.username))
+        else:
+            return Shop.objects.filter(uploaded_by__exact=self.request.user)
 
 
 class SignUpFormView(View):

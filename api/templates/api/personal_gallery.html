@@ -17,7 +17,7 @@
 <form  method="get">
     <div class="form-group">
         <input type="text" name="tags" class="form-control" placeholder="Search Central Repo...">
-         <small class="form-text text-muted">Searches image Tags and Descriptions</small>
+         <small class="form-text text-muted">Searches Your image Tags and Descriptions</small>
         <div align="center">
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
@@ -50,9 +50,21 @@
 
             </div>
     {% endfor %}
+        <div>
+            <a href="{% url 'upload_url' %}">
+            <div class="col-sm-6 col-md-4 col-lg-3 item">
+                 <div class="gallery">
+                    <img src="https://via.placeholder.com/700x500.png?text=Click+To+Add+Image" alt="Cinque Terre" width="600" height="400">
+                  <div class="desc">Upload New Image</div>
+                </div>
+
+            </div>
+        </a>
         </div>
+
     </div>
 </div>
+    <br>    <br>
 
 
 {% endblock %}
