@@ -1,7 +1,7 @@
 {% extends 'api/base.html' %}
 {% load static %}
 
-{% block title %}Signup{% endblock %}
+{% block title %}Personal Repo{% endblock %}
  {% block style %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/central_gallery.css' %}">
 {% endblock %}
@@ -9,7 +9,7 @@
 
 
 <div class="intro">
-            <h2 class="text-center"> {{ user.username|capfirst }} Repository</h2>
+            <h2 class="text-center"> Welcome {{ user.username|capfirst }} </h2>
             <p class="text-center">Find your images here.</p>
         </div>
 <br>

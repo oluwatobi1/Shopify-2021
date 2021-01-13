@@ -31,7 +31,7 @@ class ShopFormView(LoginRequiredMixin, View):
         form.instance.uploaded_by = request.user
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/shop/gallery')
+            return HttpResponseRedirect('/shop/my_gallery')
         else:
             print(form.errors)
             return HttpResponse("Form Error")
