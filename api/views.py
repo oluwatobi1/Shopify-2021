@@ -45,6 +45,7 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
     # paginate_by = 2
     template_name = "api/Gallery.html"
 
+    # search functionality
     def get_queryset(self):
         search_text = self.request.GET.get('tags')
         if search_text:
