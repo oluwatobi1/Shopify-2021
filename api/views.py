@@ -46,11 +46,13 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
     template_name = "api/Gallery.html"
 
     def get_queryset(self):
-        query = self.request.GET.get('tags')
-        try:
-            return Shop.objects.filter(tags__icontains=query)
-        except:
-            return 
+        search_text = self.request.GET.get('tags')
+        if search_text:
+            return Shop.objects.filter(tags__icontains=search_text)
+        else:
+            return Shop.objects.all()
+
+
 
     def get_context_data(self):
         context = super().get_context_data()
