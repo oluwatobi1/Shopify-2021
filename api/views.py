@@ -54,12 +54,6 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
 
 
 
-    def get_context_data(self):
-        context = super().get_context_data()
-        context['now'] = timezone.now()
-        return context
-
-
 
 class SignUpFormView(View):
     form_class = SignUpForm

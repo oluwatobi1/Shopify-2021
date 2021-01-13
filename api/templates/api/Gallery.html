@@ -13,16 +13,14 @@
 <br>
 <br>
 <br>
-<h1>HomePage</h1>
 
-<form action="{% url 'gallery_url' %}" method="get">
-  <input name="tags" type="text" placeholder="Search...">
+<form  method="get">
+    <div class="form-group">
+        <input type="text" name="tags" class="form-control" placeholder="Search...">
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
-  {% for city in object_list %}
-    <li>
-      {{ city.description }}, {{ city.tags }}
-    </li>
-  {% endfor %}
 <br>
 <br>
 
