@@ -2,12 +2,14 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse, redirect
 from django.views import View
 from django.views.generic import ListView
+from django.db.models import Q
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import ShopForm, SignUpForm
 from .models import Shop
+
 
 
 # Create your views here.
@@ -49,7 +51,8 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         search_text = self.request.GET.get('tags')
         if search_text:
-            return Shop.objects.filter(tags__icontains=search_text)
+            return Shop.objects.filter(Q(tags__icontains=search_text) |
+                                       Q(description__icontains=search_text))
         else:
             return Shop.objects.all()
 
