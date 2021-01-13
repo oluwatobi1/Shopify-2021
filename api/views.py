@@ -6,7 +6,6 @@ from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .filters import ShopTextFilter
 from .forms import ShopForm, SignUpForm
 from .models import Shop
 
@@ -50,6 +49,7 @@ class ShopGalleryView(LoginRequiredMixin, ListView):
         context = super().get_context_data()
         context['now'] = timezone.now()
         return context
+
 
 
 class SignUpFormView(View):
@@ -98,18 +98,3 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/shop/login')
 
-
-# def filter(request):
-#     tag_filter = ShopTextFilter(request.GET, queryset=Shop.objects.all())
-#     filter_obj = tag_filter.qs
-#     print(filter_obj, 'hereeeels')
-#
-#     context = {
-#         "tags": filter_obj
-#     }
-#     return render(request, 'api/Gallery.html', context)
-
-
-def product_list(request):
-    f = ShopTextFilter(request.GET)
-    return render(request, 'api/Gallery.html', {'filter': f})

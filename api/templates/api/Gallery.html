@@ -9,50 +9,6 @@
 
 
 
-
-
-
-<br>
-<br>
-<br>
-
-
-    <form method="get">
-        {{ filter.form.as_p }}
-        <input type="submit" />
-    </form>
-    HERER1
-
-    {% for obj in filter.qs %}
-        {{ obj.tag }} - ${{ obj.description }}<br />
-    {% endfor %}
-    HERE2
-
-      <form action=""  method="get">
-       <input class="form-control" name="tags" type="text" placeholder="Search" aria-label="Search">
-      <br>
-      <button type="submit" class="btn btn-primary">Search</button>
-   </form>
-HERE
-{% for obj in tags %}
-        {{ obj.name }} - ${{ obj.price }}<br />
-{% endfor %}
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% comment %} display images in gallery kind of view{% endcomment %}
 <div class="lightbox-gallery">
     <div class="container">
