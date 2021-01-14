@@ -17,7 +17,7 @@ from .models import Shop
 
 class ShopFormView(LoginRequiredMixin, View):
     form_class = ShopForm
-    template_name = "api/index.html"
+    template_name = "api/image_upload.html"
 
     def get(self, request, *args, **kwargs):
         form = self.form_class
@@ -32,9 +32,6 @@ class ShopFormView(LoginRequiredMixin, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/shop/my_gallery')
-        else:
-            print(form.errors)
-            return HttpResponse("Form Error")
         return render(request, self.template_name, {'form': form})
 
 

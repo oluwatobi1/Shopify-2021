@@ -14,19 +14,27 @@
 {#    TODO adding multiple images /shubhamc_007/pen/zNJWPM#}
 
     <script type="text/javascript" src="{% static 'javascript/upload_img.js' %}"></script>
+  <br>
 <div class="divbody">
- <form method="POST" id="form" enctype="multipart/form-data" class="uniForm">
+ <form method="POST" id="form" enctype="multipart/form-data">
      {% csrf_token %}
      <span>{{ form.photo }}</span>
      <p>Drag your files here or click in this area.</p>
 
+
      {{ form.description|as_crispy_field }}
      {{ form.tags|as_crispy_field }}
 
+     {% if form.errors %}
+         <div class="alert alert-warning" role="alert">
+         <small class="text-muted">{{ form.errors }}</small>
+
+        </div>
+     {% endif %}
+
+
   <button type="submit">Upload</button>
 </form>
-
 </div>
   </div>
-
 {% endblock %}
