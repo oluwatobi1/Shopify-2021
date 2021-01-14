@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse, redirect
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
@@ -126,4 +126,9 @@ class LoginView(View):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/shop/login')
+
+
+class ShopGalleryDetailView(DetailView):
+    model = Shop
+    template_name = "api/gallery_detail.html"
 

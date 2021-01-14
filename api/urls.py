@@ -7,7 +7,7 @@
 from django.urls import path, include
 from .views import (ShopFormView, ShopCentralGalleryView,
                     SignUpFormView, LoginView, logout_view,
-                    ShopPersonalGalleryView)
+                    ShopPersonalGalleryView, ShopGalleryDetailView, )
 
 urlpatterns = [
     path('', ShopFormView.as_view(), name='upload_url'),
@@ -16,5 +16,6 @@ urlpatterns = [
     path('signup', SignUpFormView.as_view(), name='signup_url'),
     path('login', LoginView.as_view(), name='login_url'),
     path('logout', logout_view, name="logout_url"),
+    path('gallery/<int:pk>/', ShopGalleryDetailView.as_view(), name='gallery_detail_url')
 
 ]

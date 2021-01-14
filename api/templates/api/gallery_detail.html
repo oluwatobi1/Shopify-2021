@@ -7,7 +7,25 @@
 {% endblock %}
 {% block content %}
 
-
+    <div class="intro">
+            <h2 class="text-center">Image Detail Page</h2>
+<br>
+        <div align="center">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ shop.photo.url }}" alt="Card image cap" width="60" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">Description: {{ shop.description}}</h5>
+                    <p class="card-text">Tags: {{ shop.tags }}</p>
+                    <p class="card-text"><small class="text-muted">Created on {{ shop.created_on }}</small></p>
+                    <a href="{{ request.META.HTTP_REFERER|escape }}" class="btn btn-primary">Go Back</a>
+                </div>
+            </div>
+        </div>
     
+    
+    </div>
+
+
+
 
 {% endblock %}

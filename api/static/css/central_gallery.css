@@ -2,23 +2,29 @@
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
-  border-radius: 100%;
   float: left;
   width: 180px;
+    background-color: white;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+
 }
 .rounded{
-    border-radius: 100%;
-    border: 2px solid blue;
-    background-color: red;
+
+
+
 }
 div.gallery:hover {
   border: 1px solid #777;
-  border-radius: 100%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
 }
 
 div.gallery img {
   width: 100%;
   height: auto;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
 }
 
 div.desc {
