@@ -25,7 +25,7 @@ class ShopFormView(LoginRequiredMixin, View):
         return render(request, self.template_name, context)
 
     # TODO refactor form post
-    # TODO work/Add on form Validations.
+    # TODO work/Add on form Validations (done for sign/login).
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         form.instance.uploaded_by = request.user
@@ -94,7 +94,8 @@ class SignUpFormView(View):
             return HttpResponseRedirect('/shop/gallery')
         else:
             print(form.errors)
-            return HttpResponse("Form Error")
+            context = {'signup_form': form}
+            return render(request, self.template_name, context=context)
 
 
 class LoginView(View):
@@ -111,7 +112,7 @@ class LoginView(View):
             login(request, user)
             return HttpResponseRedirect('/shop/gallery')
         else:
-            return HttpResponse("Form Error")
+            return render(request, self.template_name, {'message': 'Invalid Login Credentials'})
 
 
 def logout_view(request):
