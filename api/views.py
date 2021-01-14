@@ -48,8 +48,12 @@ class ShopCentralGalleryView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         search_text = self.request.GET.get('tags')
         if search_text:
-            return Shop.objects.filter(Q(tags__icontains=search_text) |
+            items = Shop.objects.filter(Q(tags__icontains=search_text) |
                                        Q(description__icontains=search_text))
+            if items:
+                return items
+            else:
+                return "Not found"
         else:
             return Shop.objects.all()
 
@@ -65,9 +69,13 @@ class ShopPersonalGalleryView(LoginRequiredMixin, ListView):
         print(self.request.user)
         search_text = self.request.GET.get('tags')
         if search_text:
-            return Shop.objects.filter(Q(tags__icontains=search_text) |
-                                       Q(description__icontains=search_text)|
+            items = Shop.objects.filter((Q(tags__icontains=search_text) |
+                                       Q(description__icontains=search_text)) &
                                        Q(uploaded_by__iexact=self.request.user.username))
+            if items:
+                return items
+            else:
+                return "Not found"
         else:
             return Shop.objects.filter(uploaded_by__exact=self.request.user)
 

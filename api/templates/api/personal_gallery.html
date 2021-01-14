@@ -32,14 +32,23 @@
 <div class="lightbox-gallery">
     <div class="container">
     <a href="{% url 'central_gallery_url' %}">
-        <div class="intro">
+        {% if object_list != 'Not found'%}
+            <div class="intro">
             <h2 class="text-center">Repository</h2>
             <p class="text-center">Find all images in the repository. click on any image to open gallery</p>
         </div>
+             {% else %}
+            <div class="intro">
+            <h2 class="text-center">Search Not Found!</h2>
+        </div>
+        {% endif %}
     </a>
         <div class="row photos">
         {% comment %}Loop to return items in database{% endcomment %}
-             {% for each in object_list %}
+
+                                 <br>
+        {% if object_list != 'Not found'%}
+                 {% for each in object_list %}
             <div class="col-sm-6 col-md-4 col-lg-3 item">
                  <div class="gallery">
                      <a href="{{ each.photo.url }}" data-lightbox="photos">
@@ -47,17 +56,16 @@
                   </a>
                   <div class="desc">{{ each.description}}</div>
                 </div>
-
             </div>
-    {% endfor %}
-        <div>
+                 {% endfor %}
+        {% endif %}
+        <div class="">
             <a href="{% url 'upload_url' %}">
             <div class="col-sm-6 col-md-4 col-lg-3 item">
-                 <div class="gallery">
+                 <div class="gallery rounded">
                     <img src="https://via.placeholder.com/700x500.png?text=Click+To+Add+Image" alt="Cinque Terre" width="600" height="400">
                   <div class="desc"><p>Upload New Image</p></div>
                 </div>
-
             </div>
         </a>
         </div>
