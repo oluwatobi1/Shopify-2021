@@ -6,16 +6,19 @@
 
 {# handle the signup ie. (setting up a repo #}
 {% block content %}
-<div class="row justify-content-around">
-  <form method="post">
-<h2 align="center"> Create your Image Repo</h2>
-      {% csrf_token %}
-          {{ signup_form|crispy }}
-      <button class="btn btn-primary" type="submit">Signup</button>
-<br><br>
-<a class="btn btn-primary " href="{% url 'login_url' %}">Have an account?. Login</a>
-  </form>
-</div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <form method="post">
+                <h2 align="center"> Create your Image Repo</h2>
+                {% csrf_token %}
+                {{ signup_form|crispy }}
+                <button class="btn btn-primary" type="submit">Signup</button>
+                <br><br>
+                <a class="btn btn-primary " href="{% url 'login_url' %}">Have an account?. Login</a>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
 
