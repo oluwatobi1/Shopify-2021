@@ -8,4 +8,4 @@ Searching
     * through private images
     * through public images.
 
-Go to [Image Repo] (https://imagerepositoryapp.herokuapp.com)
+Go to [Image Repo](https://imagerepositoryapp.herokuapp.com)
