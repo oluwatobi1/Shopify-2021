@@ -10,8 +10,9 @@ A web application for image storage
 
 
 ### How to use this Application?
-Walk-through demo Web App is deployed at [IMAGE REPO](https://imagerepositoryapp.herokuapp.com).
+> A Walk-through demo Web App is deployed at [IMAGE REPO](https://imagerepositoryapp.herokuapp.com).
 
+#### Steps
 1. Click [Here](https://imagerepositoryapp.herokuapp.com) to Access the demo App.
 2. Sign up or Login.(Simple Authentication)
 3. Navigate to the **Upload Image** through the nav bar
