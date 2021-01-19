@@ -18,4 +18,8 @@ A web application for image storage
 5. After step 4 Navigate to the **My Repository** through the nav bar.
 6. Use the search bar at the top to search your images
 
+Deeper Explore.
+- Create a new different account and carry out step 1-6 above
+- Navigate between **Central Repository** and **My Repository** to see the difference (Image are filtered)
+    > *The search feature in the central repo search the entire database while that in the image repo serarches through the current users data*
 
